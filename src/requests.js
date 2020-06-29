@@ -9,3 +9,12 @@ export const nextMove = async space => {
         return 'Error connection to the server';
     }
 }
+
+export const reset = async () => {
+    try {
+        await fetch(`${process.env.apiUrl}/reset`);
+    } catch (e) {
+        console.log(e);
+        return 'Error connection to the server';
+    }
+}

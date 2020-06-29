@@ -1,0 +1,4 @@
+main.svelte-14f7ggv{width:475px;margin:0 auto}.game-board.svelte-14f7ggv{display:grid;grid-template-columns:repeat(3, 1fr);grid-template-rows:repeat(3, 1fr)}button.svelte-14f7ggv{width:100%;margin-top:20px;padding:10px 0;border:none;border-radius:0;background-color:lightblue;font-size:30px;cursor:pointer}button.svelte-14f7ggv:hover{outline:none}.error-message.svelte-14f7ggv{color:red;font-size:20px}
+.space.svelte-awu3m5{border:1px solid #666565;height:125px;width:auto;font-size:75px;text-align:center;line-height:125px;cursor:pointer}.winning.svelte-awu3m5{color:purple}
+
+/*# sourceMappingURL=bundle.css.map */

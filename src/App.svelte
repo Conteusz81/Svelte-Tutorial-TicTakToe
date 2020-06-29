@@ -1,11 +1,13 @@
 <script>
     import Space from './componnets/Space.svelte'
     import gameStore from './stores/game-store.js'
+    import { nextMove } from './requests.js';
 
     let board = ["", "", "", "", "", "", "", "", ""];
     let nextPlayer = "";
     let winner = "";
     let numberOfPeople = 0;
+    let errorMessage;
 
     gameStore.subscribe(data => {
         console.log(data);
@@ -16,6 +18,12 @@
        board = data.board;
        numberOfPeople = data.numberOfPeeps;
     });
+
+    async function takeSpace(space) {
+        if (winner || !gameStore.isConnected) { return; }
+
+        errorMessage = await nextMove(space);
+    }
 </script>
 
 <style>
@@ -44,6 +52,10 @@
         outline: none;
     }
 
+    .error-message {
+        color: red;
+        font-size: 20px;
+    }
 
 </style>
 
@@ -58,18 +70,21 @@
     <h2>Player {nextPlayer}</h2>
     {/if}
     <div class="game-board">
-        <Space space={board[0]} />
-        <Space space={board[1]} />
-        <Space space={board[2]} />
-        <Space space={board[3]} />
-        <Space space={board[4]} />
-        <Space space={board[5]} />
-        <Space space={board[6]} />
-        <Space space={board[7]} />
-        <Space space={board[8]} />
+        <Space {winner} space={board[0]} on:click={() => takeSpace(0)} />
+        <Space {winner} space={board[1]} on:click={() => takeSpace(1)} />
+        <Space {winner} space={board[2]} on:click={() => takeSpace(2)} />
+        <Space {winner} space={board[3]} on:click={() => takeSpace(3)} />
+        <Space {winner} space={board[4]} on:click={() => takeSpace(4)} />
+        <Space {winner} space={board[5]} on:click={() => takeSpace(5)} />
+        <Space {winner} space={board[6]} on:click={() => takeSpace(6)} />
+        <Space {winner} space={board[7]} on:click={() => takeSpace(7)} />
+        <Space {winner} space={board[8]} on:click={() => takeSpace(8)} />
     </div>
     {#if winner}
     <button>New Game</button>
+    {/if}
+    {#if errorMessage}
+        <p class="error-message">{errorMessage}</p>
     {/if}
 </main>
 

@@ -510,7 +510,7 @@ var app = (function () {
     	};
     }
 
-    // (71:21) 
+    // (70:21) 
     function create_if_block_3(ctx) {
     	let h2;
     	let t0;
@@ -539,7 +539,7 @@ var app = (function () {
     	};
     }
 
-    // (69:4) {#if winner ==='TIE'}
+    // (68:4) {#if winner ==='TIE'}
     function create_if_block_2(ctx) {
     	let h2;
 
@@ -558,7 +558,7 @@ var app = (function () {
     	};
     }
 
-    // (87:4) {#if winner}
+    // (86:4) {#if winner}
     function create_if_block_1(ctx) {
     	let button;
     	let mounted;
@@ -587,7 +587,7 @@ var app = (function () {
     	};
     }
 
-    // (90:4) {#if errorMessage}
+    // (89:4) {#if errorMessage}
     function create_if_block(ctx) {
     	let p;
     	let t;
@@ -934,8 +934,6 @@ var app = (function () {
     	let errorMessage;
 
     	gameStore.subscribe(data => {
-    		console.log(data);
-
     		if (!data) {
     			return;
     		}

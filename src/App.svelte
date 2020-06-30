@@ -10,7 +10,6 @@
     let errorMessage;
 
     gameStore.subscribe(data => {
-        console.log(data);
         if (!data) { return; }
 
        winner = data.winner;
